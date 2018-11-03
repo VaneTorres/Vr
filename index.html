@@ -7,6 +7,8 @@
 </head>
 <body>
 	<a-scene>
+		<!--<a-camera position="-5 3 1" rotarion="0 0 180"></a-camera>-->
+		<!--<a-cursor fuse="true"></a-cursor>-->
 		<a-sky src="img/fondo.jpg"></a-sky>
 		<a-entity  light = "type: ambient; color: #CCC" > </a-entity>
 		<a-entity light = "type: directional;  
@@ -16,32 +18,27 @@
 			position = "-5 3 1.5" > 
 		</a-entity >
 		<a-entity geometry="primitive: sphere"
-          material="src:img/Sol.jpg; roughness: 1 position=0 0 0">
+          material="src:img/Sol.jpg; roughness: 1 "position="-5 3 1">
 		</a-entity>
-		<a-sphere id="neptune" radius="0.4" position="0 1 -2" src="img/neptune/neptunemap.jpg" shadow = " receive: true " >
-			<a-animation attribute="rotation"
+		<a-entity id="mercury" geometry="primitive: sphere;radius:0.2" 
+          material="normalMap:img/mercury/mercurybump.jpg; src:img/mercury/mercurymap.jpg; roughness: 1 "
+          position="-3 2 1" ></a-entity>
+		<a-sphere id="neptune" radius="0.4" position="0 0 1" src="img/neptune/neptunemap.jpg" shadow = " receive: true " >
+        </a-sphere>	
+		<a-sphere id="jupiter" radius="0.4" position="-1.5 2 1" src="img/jupiter/jupitermap.jpg" shadow = " receive: true " >	
+		</a-sphere>
+		<a-entity id="mercury" geometry="primitive: sphere;radius:0.2" 
+          material="normalMap:img/pluto/plutobump.jpg; src:img/pluto/plutomap.jpg; roughness: 1 "
+          position="-3 3 1" ></a-entity>
+			<!--<a-animation attribute="rotation"  id="jupiter" 
            	   dur="10000"
            	   fill="0 0 0"
            	   to="0 360 0"
            	   repeat="indefinite">
-           	</a-animation>
-        </a-sphere>
-		<a-sphere id="jupiter" radius="0.4" position="0 3 -2" src="img/jupiter/jupitermap.jpg" shadow = " receive: true " >
-			<a-animation attribute="rotation"
-           	   dur="10000"
-           	   fill="0 0 0"
-           	   to="0 360 0"
-           	   repeat="indefinite">
-           	</a-animation>
-        </a-sphere>
-        <a-sphere id="jupiter" radius="0.4" position="2 3 -2" src="img/jupiter/jupitermap.jpg" shadow = " receive: true " >
-			<a-animation attribute="rotation"
-           	   dur="10000"
-           	   fill="0 0 0"
-           	   to="0 360 0"
-           	   repeat="indefinite">
-           	</a-animation>
-        </a-sphere>
+           	</a-animation>-->
+           
+        
+
 </a-scene>
 </body>
 </html>
