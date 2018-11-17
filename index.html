@@ -4,36 +4,133 @@
 	<title>Proyecto</title>
 	<meta charset="utf-8">
 	<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-lensflare-component/dist/aframe-lensflare-component.min.js"></script> 
 </head>
-<body>
-	<a-scene>
-		<a-sky src="img/fondo.jpg"></a-sky>
-		<a-entity  light = "type: ambient; color: #CCC" > </a-entity>
-		<a-entity light = "type: directional;  
-			castShadow: true;
-			intensidad: 0.2;
-			shadowCameraVisible: true;" 
-			position = "-5 3 1.5" > 
-		</a-entity >
-		<a-entity geometry="primitive: sphere"
-          material="src:img/Sol.jpg; roughness: 1 position=0 0 0">
-		</a-entity>
-		<a-sphere id="neptune" radius="0.4" position="0 1 -2" src="img/neptune/neptunemap.jpg" shadow = " receive: true " >
-			<a-animation attribute="rotation"
-           	   dur="10000"
-           	   fill="0 0 0"
-           	   to="0 360 0"
-           	   repeat="indefinite">
-           	</a-animation>
-        </a-sphere>
-		<a-sphere id="jupiter" radius="0.4" position="0 3 -2" src="img/jupiter/jupitermap.jpg" shadow = " receive: true " >
-			<a-animation attribute="rotation"
-           	   dur="10000"
-           	   fill="0 0 0"
-           	   to="0 360 0"
-           	   repeat="indefinite">
-           	</a-animation>
-        </a-sphere>
-</a-scene>
-</body>
+  <body>
+	  <a-scene>
+       <!-- <a-camera position="0 0 0"></a-camera> -->
+		  <a-camera position="0 0 500"></a-camera> 
+	 	   <!-- <a-cursor fuse="true" fuseTimeout="500" ></a-cursor> -->
+	   	<a-sky src="img/fondo.jpg"></a-sky>
+	 	  <a-entity  light = "type: ambient; color: 0x222222; castShadow: true;" > </a-entity>
+  		<a-entity light = "type: directional; 
+	   		color:0xffffff; 
+	  		castShadow: true;
+  			intensidad: 0.2;
+   		 shadowCameraVisible: false" 
+	 		 position = "100 10 -50" > 
+		  </a-entity>
+		  <a-entity geometry="primitive: sphere; radius: 100"
+          material="src:img/Sol.jpg; normalMap:img/Sol.jpg ; normalScale: 0.5; flatShading: true; color: 0xffffff"  position="0 0 0"  shadow="autoUpdate: true" >
+          <a-entity  light = "type: point; color: 0xF78709; intensity: 1; distance: 100"> </a-entity>
+	   	</a-entity>
+      <a-entity id="mercury" geometry="primitive: sphere; radius:7" 
+            material="normalMap:img/mercury/mercurybump.jpg;
+            normalScale:0.2;  
+            src:img/mercury/mercurymap.jpg" shadow="autoUpdate: true"
+            position="200 0 1" >
+            <a-animation attribute="rotation"  
+                 dur="40000"
+                 to="0 360 0"
+                 repeat="indefinite">
+             </a-animation>
+      </a-entity>
+      <a-entity id="venus" geometry="primitive: sphere; radius:15" 
+          material="normalMap:img/venus/venusbump.jpg; normalScale:0.2; 
+          src:img/venus/venusmap.jpg" shadow="autoUpdate: true"
+          position="400 0 1" rotation="177 0 0" >
+          <a-animation attribute="rotation"  
+               dur="40000"
+               to="0 360 0"
+               repeat="indefinite">
+          </a-animation>
+      </a-entity>
+     
+      <a-entity id="mars" geometry="primitive: sphere; radius: 7.5 " 
+            material="normalMap:img/mars/mars_1k_normal.jpg; normalScale:0.8; 
+            src:img/mars/mars_1k_color.jpg" shadow="autoUpdate: true"
+            position="600 0 1" >
+            <a-animation attribute="rotation"  
+                 dur="40000"
+                 to="0 360 0"
+                 repeat="indefinite">
+            </a-animation>
+      </a-entity>
+      
+      <a-entity id="earth" geometry="primitive: sphere; radius:15" 
+       	  material="normalMap:img/earth/earth_normalmap_flat2k.jpg;normalScale:0.7;  
+     	    src:img/earth/earthmap1k.jpg" shadow="autoUpdate: true"
+      	  position="-300 0 1">
+          <a-animation attribute="rotation"  
+             dur="40000"
+             to="0 360 0"
+             repeat="indefinite">
+          </a-animation>
+      </a-entity>
+      <a-sphere id="clouds"  radius="15.1"  position="-300 0 1" src="img/earth/fair_clouds_1k.png" 
+        	transparent= "true" opacity= "0.3" shadow="autoUpdate: true">
+          <a-animation attribute="rotation"  
+             dur="10000"
+             to="0 360 0"
+             repeat="indefinite">
+          </a-animation>
+      </a-sphere>
+      <a-entity id="moon" geometry="primitive: sphere; radius:5" 
+          material="normalMap:img/moon/moonbump2l.jpg;normalScale:0.25;  
+          src:img/moon/moonmap2k.jpg" shadow="autoUpdate: true"
+          position="-330 0 2">
+          <a-animation attribute="rotation"  
+             dur="20000"
+             to="0 360 0"
+             repeat="indefinite">
+          </a-animation>
+                   <!-- <a-animation attribute="position" to="-330 0 -100" direction="alternate-reverse" repeat="indefinite" easing="ease-in-out-cubic" dur="1000"></a-animation> -->
+      </a-entity>
+      <a-sphere id="jupiter" radius="50" position="-500 0 1" 
+          src="img/jupiter/jupitermap.jpg" shadow="autoUpdate: true">
+          <a-animation attribute="rotation"  
+              dur="40000"
+              to="0 360 0"
+              repeat="indefinite">
+          </a-animation>
+      </a-sphere>	
+      <a-sphere id="saturno" radius="40" position="-750 0 1" src="img/saturn/saturnmap.jpg" 
+          shadow="autoUpdate: true" rotation="27 0 0" >
+          <a-animation attribute="rotation"  
+             dur="40000"
+              to="0 360 0"
+             repeat="indefinite">
+          </a-animation>
+      </a-sphere>	
+      <a-ring id="saturnring" radius-inner="45" radius-outer="60" rotation="45 0 0" 
+              src="img/saturn/saturnringcolor.jpg" shadow="autoUpdate: true" position="-750 0 1">
+      </a-ring>
+      <a-sphere id="uranus" radius="30" position="850 0 1" src="img/uranus/uranusmap.jpg" shadow="autoUpdate: true">
+         <a-animation attribute="rotation"  
+              dur="20000"
+              to="0 360 0"
+              repeat="indefinite">
+         </a-animation>
+      </a-sphere>	
+      <a-ring id="saturnring" radius-inner="45" radius-outer="60" rotation="50 0 0" position="850 0 1"
+          segments-theta="120" src="img/uranus/uranusringcolour.jpg" shadow="autoUpdate: true">
+      </a-ring>
+      <a-sphere id="neptune" radius="30" position="-1000 0 1" src="img/neptune/neptunemap.jpg" 
+        shadow="autoUpdate: true">
+        <a-animation attribute="rotation"  
+              dur="20000"
+              to="0 360 0"
+              repeat="indefinite">
+        </a-animation>
+        </a-sphere>	
+        <a-text font="mozillavr" position="180 -20 1" value="Mercurio" color="white" width="800"></a-text> 
+        <a-text font="mozillavr" position="360 -20 1" value="Venus" color="white"  width="800"></a-text>
+        <a-text font="mozillavr" position="580 -20 1" value="Marte" color="white"   width="800" ></a-text>
+        <a-text font="mozillavr" position="-290 -30 1" value="Tierra" color="white"   width="900"></a-text>
+        <a-text font="mozillavr" position="-490 -50 1" value="Jupiter" color="white"  width="900" ></a-text>
+        <a-text font="mozillavr" position="-740 -40 1" value="Saturno" color="white"  width="900"></a-text>
+        <a-text font="mozillavr" position="-998 -30 1" value="Neptuno" color="white" width="900" ></a-text>
+        <a-text font="mozillavr" position="840 -30 1" value="Urano" color="white" width="900" ></a-text>
+    </a-scene>
+  </body>
 </html>
